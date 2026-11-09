@@ -7,26 +7,25 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// Fungsi Baru: Interaksi dari Katalog ke Kalkulator
-function pilihPaketDariKatalog(nilaiPaket) {
+// Fungsi Interaktif dari Katalog ke Kalkulator
+function pilihPaketDariKatalog(nilaiPaket, tipeWaktu) {
     const paketSelect = document.getElementById('paket');
-    paketSelect.value = nilaiPaket; // Otomatis mengubah pilihan dropdown
-    updateLabelDurasi(); // Perbarui label waktu
+    paketSelect.value = nilaiPaket;
+    updateLabelDurasi();
 
-    // Scroll perlahan (smooth) ke area kalkulator
-    const areaKalkulator = document.getElementById('areaKalkulator');
+    // Scroll halus ke area kalkulator
+    const areaKalkulator = document.getElementById('calc-section');
     areaKalkulator.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-    // Efek highlight sementara (glow hijau) pada area kalkulator
-    areaKalkulator.style.boxShadow = '0 0 0 5px rgba(174, 172, 120, 0.4)';
-    areaKalkulator.style.borderColor = '#aeac78';
-    
+    // Efek highlight kotak kalkulator
+    const box = document.querySelector('.calculator-box');
+    box.style.boxShadow = '0 0 0 5px rgba(174, 172, 120, 0.4)';
     setTimeout(() => {
-        areaKalkulator.style.boxShadow = '0 10px 30px rgba(76, 69, 65, 0.05)';
-        areaKalkulator.style.borderColor = 'rgba(174, 172, 120, 0.25)';
+        box.style.boxShadow = '0 10px 30px rgba(76, 69, 65, 0.05)';
     }, 1000);
 }
 
+// Menyesuaikan label durasi berdasarkan paket yang dipilih
 function updateLabelDurasi() {
     const paketSelect = document.getElementById('paket');
     if (!paketSelect) return;
@@ -46,6 +45,7 @@ function updateLabelDurasi() {
     }
 }
 
+// Logika Kalkulator Harga & Diskon (Software Engineer 1 & 2)
 function hitungTotal() {
     const paketEl = document.getElementById('paket');
     const durasiEl = document.getElementById('durasi');
@@ -63,13 +63,15 @@ function hitungTotal() {
         return;
     }
 
+    // Perhitungan subtotal (Harga x Durasi)
     const subtotal = hargaPaket * durasi;
     let diskon = 0;
 
+    // Logika Percabangan Kondisi Diskon Promo (SE 2)
     if (kodePromo === 'UNJHEMAT') {
-        diskon = subtotal * 0.10;
+        diskon = subtotal * 0.10; // Diskon 10%
     } else if (kodePromo === 'GREENKAMPUS') {
-        diskon = 15000;
+        diskon = 15000; // Potongan langsung Rp 15.000
         if (diskon > subtotal) diskon = subtotal; 
     } else if (kodePromo !== '') {
         alert("Kode promo tidak valid atau telah kadaluarsa.");
@@ -77,6 +79,7 @@ function hitungTotal() {
 
     const totalBayar = subtotal - diskon;
 
+    // Menampilkan hasil ke elemen HTML
     document.getElementById('kendaraanOutput').innerText = jenisKendaraan;
     document.getElementById('subtotalOutput').innerText = formatRupiah(subtotal);
     document.getElementById('diskonOutput').innerText = '- ' + formatRupiah(diskon);
@@ -87,14 +90,14 @@ function hitungTotal() {
 
 function prosesPembayaran() {
     const jenisKendaraan = document.querySelector('input[name="jenisKendaraan"]:checked').value;
-    const paymentMethod = document.getElementById('paymentMethod').options[document.getElementById('paymentMethod').selectedIndex].text;
+    const paymentMethod = document.getElementById('paymentMethod').options[document.getElementById('paymentMethod'].selectedIndex].text;
     const totalOutput = document.getElementById('totalOutput').innerText;
     
-    alert(`Pesanan Berhasil Dikonfirmasi!\n\nKendaraan: ${jenisKendaraan}\nTotal Pembayaran: ${totalOutput}\nMetode Pembayaran: ${paymentMethod}\n\nSilakan selesaikan pembayaran Anda untuk mengambil unit di Station UNJ SmartBike.`);
+    alert(`Pesanan Berhasil Dikonfirmasi!\n\nKendaraan: ${jenisKendaraan}\nTotal Pembayaran: ${totalOutput}\nMetode Pembayaran: ${paymentMethod}\n\nSilakan selesaikan pembayaran dan ambil unit di Station UNJ SmartBike.`);
 }
 
 function formatRupiah(angka) {
-    return new Intl.NumberFormat('id-ID', {
+    return new Intl.NumberFormat('ID-ID', {
         style: 'currency',
         currency: 'IDR',
         maximumFractionDigits: 0
