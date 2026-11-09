@@ -373,13 +373,11 @@ header p {
     padding-top: 1.5rem;
 }
 
-/* =========================================
-   STYLE UNTUK FOOTER DAN TEAM GRID
-   ========================================= */
+/* Footer Credit Kelompok */
 footer {
     background: linear-gradient(135deg, var(--sage-green), var(--sage-dark));
     color: var(--white);
-    padding: 4rem 1.5rem 2rem;
+    padding: 3rem 1.5rem;
     text-align: center;
     border-radius: 30px 30px 0 0;
     margin-top: 5rem;
@@ -395,70 +393,17 @@ footer {
 
 .footer-subtitle {
     font-size: 1rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
     color: var(--mustard);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-    max-width: 950px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.team-member {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-}
-
-.team-member:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.team-member .name {
-    display: block;
-    font-weight: 700;
-    font-size: 1.05rem;
-    margin-bottom: 0.3rem;
-}
-
-.team-member .nim {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--bg-main);
-    margin-bottom: 1rem;
-    opacity: 0.9;
-}
-
-.team-member .role {
-    display: inline-block;
-    background: var(--mustard);
-    color: var(--dark-text);
-    padding: 4px 14px;
-    border-radius: 30px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 
 .copyright {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-    padding-top: 2rem;
-    margin-top: 2rem;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
 }
