@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNJ SmartBike - Penyewaan Sepeda Listrik & Skuter Kampus</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <span class="badge">Eco-Friendly Kampus</span>
+            <h1>UNJ SmartBike</h1>
+            <p>Penyewaan Sepeda Listrik & Skuter Ramah Lingkungan Area Kampus | Kelompok 1 Kelas WebDev D</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- Section Katalog Paket Interaktif -->
+        <h2 class="section-title">Katalog Paket Sewa</h2>
+        <div class="packages">
+            <div class="card" onclick="pilihPaketDariKatalog('10000')">
+                <div class="card-img-wrapper">
+                    <img src="https://trexsporting.com/images/products/254-aQ0sh5k5R4.png" alt="Sepeda Listrik UNJ SmartBike">
+                </div>
+                <div class="card-content">
+                    <h3>Paket Sewa Per Jam</h3>
+                    <div class="price">Rp 10.000 <span>/ jam</span></div>
+                    <ul>
+                        <li>Mobilitas cepat antargedung kampus</li>
+                        <li>Sudah termasuk helm standar</li>
+                        <li>Bebas isi daya di station resmi</li>
+                    </ul>
+                    <button class="card-btn">Pilih Paket Ini</button>
+                </div>
+            </div>
+
+            <div class="card featured" onclick="pilihPaketDariKatalog('50000')">
+                <div class="card-img-wrapper">
+                    <img src="https://i02.appmifile.com/908_item_id/23/07/2024/ba2b96a90d22b2ac08fafad627e821c4.png?thumb=1&w=400&q=85" alt="Skuter Listrik UNJ SmartBike">
+                </div>
+                <div class="card-content">
+                    <h3>Paket Harian Mahasiswa</h3>
+                    <div class="price">Rp 50.000 <span>/ hari</span></div>
+                    <ul>
+                        <li>Penggunaan penuh seharian (07.00 - 19.00)</li>
+                        <li>Tarif khusus sivitas akademika</li>
+                        <li>Gratis asuransi perjalanan ringan</li>
+                    </ul>
+                    <button class="card-btn featured-btn">Pilih Paket Ini</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="pilihPaketDariKatalog('250000')">
+                <div class="card-img-wrapper">
+                    <img src="https://trexsporting.com/images/products/232-LxwWuWK-zB.png" alt="Unit Mingguan UNJ SmartBike">
+                </div>
+                <div class="card-content">
+                    <h3>Paket Sewa Mingguan</h3>
+                    <div class="price">Rp 250.000 <span>/ minggu</span></div>
+                    <ul>
+                        <li>Unit dapat dibawa pulang ke kos</li>
+                        <li>Fasilitas gratis charger portabel</li>
+                        <li>Layanan pemeliharaan rutin</li>
+                    </ul>
+                    <button class="card-btn">Pilih Paket Ini</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Kalkulator & Payment -->
+        <h2 class="section-title">Simulasi Kalkulator & Pembayaran</h2>
+        <div class="calculator-box" id="areaKalkulator">
+            <form id="calcForm">
+                
+                <div class="form-group">
+                    <label>Pilih Jenis Kendaraan:</label>
+                    <div class="radio-group-custom">
+                        <input type="radio" id="sepeda" name="jenisKendaraan" value="Sepeda Listrik" checked>
+                        <label for="sepeda" class="radio-card">
+                            <span class="icon">🚲</span>
+                            Sepeda Listrik
+                        </label>
+
+                        <input type="radio" id="skuter" name="jenisKendaraan" value="Skuter Listrik">
+                        <label for="skuter" class="radio-card">
+                            <span class="icon">🛴</span>
+                            Skuter Listrik
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="paket">Pilihan Paket Sewa:</label>
+                    <select id="paket" required>
+                        <option value="10000" data-tipe="jam">Paket Sewa Per Jam (Rp 10.000/jam)</option>
+                        <option value="50000" data-tipe="hari">Paket Sewa Harian Mahasiswa (Rp 50.000/hari)</option>
+                        <option value="250000" data-tipe="minggu">Paket Sewa Mingguan (Rp 250.000/minggu)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="durasi" id="labelDurasi">Durasi Unit yang Disewa (Jam):</label>
+                    <input type="number" id="durasi" min="1" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="promo">Kode Promo (Opsional):</label>
+                    <input type="text" id="promo" placeholder="Contoh: UNJHEMAT atau GREENKAMPUS">
+                    <div class="promo-info">Gunakan kode <b>UNJHEMAT</b> untuk diskon 10% atau <b>GREENKAMPUS</b> untuk potongan Rp 15.000</div>
+                </div>
+
+                <button type="button" class="btn-calc" onclick="hitungTotal()">Hitung Simulasi Biaya</button>
+            </form>
+
+            <div class="result-box" id="resultBox">
+                <h4>Rincian Estimasi Biaya</h4>
+                <div class="result-item">
+                    <span>Kendaraan:</span>
+                    <span id="kendaraanOutput" style="font-weight: 600; color: var(--sage-dark);">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Subtotal:</span>
+                    <span id="subtotalOutput">Rp 0</span>
+                </div>
+                <div class="result-item">
+                    <span>Diskon Promo:</span>
+                    <span id="diskonOutput">- Rp 0</span>
+                </div>
+                <div class="result-item result-total">
+                    <span>Total Pembayaran:</span>
+                    <span id="totalOutput">Rp 0</span>
+                </div>
+
+                <div class="payment-section">
+                    <h4>Pilih Metode Pembayaran</h4>
+                    <div class="form-group">
+                        <select id="paymentMethod">
+                            <option value="bni">Virtual Account BNI / Mandiri</option>
+                            <option value="qris">QRIS (GoPay, OVO, Dana, ShopeePay)</option>
+                            <option value="cash">Bayar Tunai di Station Kampus</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn-pay" onclick="prosesPembayaran()">Konfirmasi & Proses Sewa</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Tim / Anggota Kelompok -->
+    <footer>
+        <div class="footer-content">
+            <h3>UNJ SmartBike</h3>
+            <p class="footer-subtitle">Tim Pengembang - Kelompok 1</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <span class="name">Anggita Rahman</span>
+                    <span class="nim">1710625028</span>
+                    <span class="role">CEO</span>
+                </div>
+                <div class="team-member">
+                    <span class="name">Nezha Aliya Rachman</span>
+                    <span class="nim">1710625176</span>
+                    <span class="role">PM</span>
+                </div>
+                <div class="team-member">
+                    <span class="name">Thufaila Nasyia Erha</span>
+                    <span class="nim">1710725128</span>
+                    <span class="role">PM</span>
+                </div>
+                <div class="team-member">
+                    <span class="name">Zahra Tian Nur Alifa</span>
+                    <span class="nim">1710625112</span>
+                    <span class="role">SE</span>
+                </div>
+                <div class="team-member">
+                    <span class="name">Cein Gabriele Emily Pitoy</span>
+                    <span class="nim">1710625169</span>
+                    <span class="role">SE</span>
+                </div>
+                <div class="team-member">
+                    <span class="name">Libby Calista Putri</span>
+                    <span class="nim">1710635100</span>
+                    <span class="role">UI/UX</span>
+                </div>
+            </div>
+
+            <p class="copyright">&copy; 2026 UNJ SmartBike &bull; WebDev D - Fakultas Teknik Universitas Negeri Jakarta</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
