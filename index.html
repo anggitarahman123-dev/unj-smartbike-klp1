@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNJ SmartBike - Penyewaan Sepeda Listrik & Skuter Kampus</title>
     
+    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,151 +14,185 @@
 </head>
 <body>
 
-    <!-- Header hanya berisi judul dan deskripsi usaha -->
-    <header>
+    <!-- BAGIAN 1: HEADER (Oleh CEO) -->
+    <header id="header-section" data-role="CEO">
         <div class="header-container">
             <span class="badge">Eco-Friendly Kampus</span>
             <h1>UNJ SmartBike</h1>
-            <p>Penyewaan Sepeda Listrik & Skuter Ramah Lingkungan Area Kampus</p>
+            <nav class="nav-links">
+                <a href="#hero-section">Beranda</a>
+                <a href="#catalog-section">Katalog</a>
+                <a href="#calc-section">Kalkulator</a>
+            </nav>
         </div>
     </header>
 
     <div class="container">
         
-        <!-- Section Katalog Paket Interaktif -->
-        <h2 class="section-title">Katalog Paket Sewa</h2>
-        <div class="packages">
-            <div class="card" onclick="pilihPaketDariKatalog('10000')">
-                <div class="card-img-wrapper">
-                    <img src="https://trexsporting.com/images/products/254-aQ0sh5k5R4.png" alt="Sepeda Listrik UNJ SmartBike">
+        <!-- BAGIAN 2: HERO SECTION (Oleh Product Manager 1) -->
+        <section id="hero-section" data-role="PM">
+            <div class="hero-content">
+                <h2>Solusi Mobilitas Hijau Antargedung Kampus</h2>
+                <p>Nikmati kemudahan berpindah gedung kuliah dengan armada sepeda listrik dan skuter ramah lingkungan yang cepat, praktis, dan terjangkau khusus sivitas akademika UNJ.</p>
+                <div class="hero-features">
+                    <div class="feature-item">✓ Cepat & Bebas Macet</div>
+                    <div class="feature-item">✓ Tarif Khusus Mahasiswa</div>
+                    <div class="feature-item">✓ Station Pengisian Daya Luas</div>
                 </div>
-                <div class="card-content">
-                    <h3>Paket Sewa Per Jam</h3>
-                    <div class="price">Rp 10.000 <span>/ jam</span></div>
-                    <ul>
-                        <li>Mobilitas cepat antargedung kampus</li>
-                        <li>Sudah termasuk helm standar</li>
-                        <li>Bebas isi daya di station resmi</li>
-                    </ul>
-                    <button class="card-btn">Pilih Paket Ini</button>
-                </div>
+                <a href="#calc-section" class="hero-btn">Mulai Sewa Sekarang</a>
             </div>
+        </section>
 
-            <div class="card featured" onclick="pilihPaketDariKatalog('50000')">
-                <div class="card-img-wrapper">
-                    <img src="https://i02.appmifile.com/908_item_id/23/07/2024/ba2b96a90d22b2ac08fafad627e821c4.png?thumb=1&w=400&q=85" alt="Skuter Listrik UNJ SmartBike">
-                </div>
-                <div class="card-content">
-                    <h3>Paket Harian Mahasiswa</h3>
-                    <div class="price">Rp 50.000 <span>/ hari</span></div>
-                    <ul>
-                        <li>Penggunaan penuh seharian (07.00 - 19.00)</li>
-                        <li>Tarif khusus sivitas akademika</li>
-                        <li>Gratis asuransi perjalanan ringan</li>
-                    </ul>
-                    <button class="card-btn featured-btn">Pilih Paket Ini</button>
-                </div>
-            </div>
-
-            <div class="card" onclick="pilihPaketDariKatalog('250000')">
-                <div class="card-img-wrapper">
-                    <img src="https://trexsporting.com/images/products/232-LxwWuWK-zB.png" alt="Unit Mingguan UNJ SmartBike">
-                </div>
-                <div class="card-content">
-                    <h3>Paket Sewa Mingguan</h3>
-                    <div class="price">Rp 250.000 <span>/ minggu</span></div>
-                    <ul>
-                        <li>Unit dapat dibawa pulang ke kos</li>
-                        <li>Fasilitas gratis charger portabel</li>
-                        <li>Layanan pemeliharaan rutin</li>
-                    </ul>
-                    <button class="card-btn">Pilih Paket Ini</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section Kalkulator & Payment -->
-        <h2 class="section-title">Simulasi Kalkulator & Pembayaran</h2>
-        <div class="calculator-box" id="areaKalkulator">
-            <form id="calcForm">
+        <!-- BAGIAN 3: CATALOG SECTION (Oleh Product Manager 2) -->
+        <section id="catalog-section" data-role="PM">
+            <h2 class="section-title">Katalog Paket Sewa</h2>
+            <div class="packages">
                 
-                <div class="form-group">
-                    <label>Pilih Jenis Kendaraan:</label>
-                    <div class="radio-group-custom">
-                        <input type="radio" id="sepeda" name="jenisKendaraan" value="Sepeda Listrik" checked>
-                        <label for="sepeda" class="radio-card">
-                            <span class="icon">🚲</span>
-                            Sepeda Listrik
-                        </label>
-
-                        <input type="radio" id="skuter" name="jenisKendaraan" value="Skuter Listrik">
-                        <label for="skuter" class="radio-card">
-                            <span class="icon">🛴</span>
-                            Skuter Listrik
-                        </label>
+                <!-- Paket 1 -->
+                <div class="card" onclick="pilihPaketDariKatalog('10000', 'jam')">
+                    <div class="card-img-wrapper">
+                        <img src="https://trexsporting.com/images/products/254-aQ0sh5k5R4.png" alt="Paket Sewa Per Jam">
+                    </div>
+                    <div class="card-content">
+                        <h3>Paket Sewa Per Jam</h3>
+                        <div class="price">Rp 10.000 <span>/ jam</span></div>
+                        <ul>
+                            <li>Mobilitas cepat antargedung kampus</li>
+                            <li>Sudah termasuk helm standar</li>
+                            <li>Bebas isi daya di station resmi</li>
+                        </ul>
+                        <div class="promo-hint">Kode Promo: <b>UNJHEMAT</b> / <b>GREENKAMPUS</b></div>
+                        <button class="card-btn">Pilih Paket Ini</button>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="paket">Pilihan Paket Sewa:</label>
-                    <select id="paket" required>
-                        <option value="10000" data-tipe="jam">Paket Sewa Per Jam (Rp 10.000/jam)</option>
-                        <option value="50000" data-tipe="hari">Paket Sewa Harian Mahasiswa (Rp 50.000/hari)</option>
-                        <option value="250000" data-tipe="minggu">Paket Sewa Mingguan (Rp 250.000/minggu)</option>
-                    </select>
+                <!-- Paket 2 (Featured) -->
+                <div class="card featured" onclick="pilihPaketDariKatalog('50000', 'hari')">
+                    <div class="card-img-wrapper">
+                        <img src="https://i02.appmifile.com/908_item_id/23/07/2024/ba2b96a90d22b2ac08fafad627e821c4.png?thumb=1&w=400&q=85" alt="Paket Harian Mahasiswa">
+                    </div>
+                    <div class="card-content">
+                        <h3>Paket Harian Mahasiswa</h3>
+                        <div class="price">Rp 50.000 <span>/ hari</span></div>
+                        <ul>
+                            <li>Penggunaan penuh seharian (07.00 - 19.00)</li>
+                            <li>Tarif khusus sivitas akademika</li>
+                            <li>Gratis asuransi perjalanan ringan</li>
+                        </ul>
+                        <div class="promo-hint">Kode Promo: <b>UNJHEMAT</b> / <b>GREENKAMPUS</b></div>
+                        <button class="card-btn featured-btn">Pilih Paket Ini</button>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="durasi" id="labelDurasi">Durasi Unit yang Disewa (Jam):</label>
-                    <input type="number" id="durasi" min="1" value="1" required>
+                <!-- Paket 3 -->
+                <div class="card" onclick="pilihPaketDariKatalog('250000', 'minggu')">
+                    <div class="card-img-wrapper">
+                        <img src="https://trexsporting.com/images/products/232-LxwWuWK-zB.png" alt="Paket Sewa Mingguan">
+                    </div>
+                    <div class="card-content">
+                        <h3>Paket Sewa Mingguan</h3>
+                        <div class="price">Rp 250.000 <span>/ minggu</span></div>
+                        <ul>
+                            <li>Unit dapat dibawa pulang ke kos</li>
+                            <li>Fasilitas gratis charger portabel</li>
+                            <li>Layanan pemeliharaan rutin</li>
+                        </ul>
+                        <div class="promo-hint">Kode Promo: <b>UNJHEMAT</b> / <b>GREENKAMPUS</b></div>
+                        <button class="card-btn">Pilih Paket Ini</button>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="promo">Kode Promo (Opsional):</label>
-                    <input type="text" id="promo" placeholder="Contoh: UNJHEMAT atau GREENKAMPUS">
-                    <div class="promo-info">Gunakan kode <b>UNJHEMAT</b> untuk diskon 10% atau <b>GREENKAMPUS</b> untuk potongan Rp 15.000</div>
-                </div>
+            </div>
+        </section>
 
-                <button type="button" class="btn-calc" onclick="hitungTotal()">Hitung Simulasi Biaya</button>
-            </form>
-
-            <div class="result-box" id="resultBox">
-                <h4>Rincian Estimasi Biaya</h4>
-                <div class="result-item">
-                    <span>Kendaraan:</span>
-                    <span id="kendaraanOutput" style="font-weight: 600; color: var(--sage-dark);">-</span>
-                </div>
-                <div class="result-item">
-                    <span>Subtotal:</span>
-                    <span id="subtotalOutput">Rp 0</span>
-                </div>
-                <div class="result-item">
-                    <span>Diskon Promo:</span>
-                    <span id="diskonOutput">- Rp 0</span>
-                </div>
-                <div class="result-item result-total">
-                    <span>Total Pembayaran:</span>
-                    <span id="totalOutput">Rp 0</span>
-                </div>
-
-                <div class="payment-section">
-                    <h4>Pilih Metode Pembayaran</h4>
+        <!-- BAGIAN 4: CALCULATOR SECTION (Oleh Software Engineer 1 & 2) -->
+        <section id="calc-section" data-role="SE">
+            <h2 class="section-title">Simulasi Kalkulator & Pembayaran</h2>
+            <div class="calculator-box">
+                <form id="calcForm">
+                    
+                    <!-- Pilihan Kendaraan -->
                     <div class="form-group">
-                        <select id="paymentMethod">
-                            <option value="bni">Virtual Account BNI / Mandiri</option>
-                            <option value="qris">QRIS (GoPay, OVO, Dana, ShopeePay)</option>
-                            <option value="cash">Bayar Tunai di Station Kampus</option>
+                        <label>Pilih Jenis Kendaraan:</label>
+                        <div class="radio-group-custom">
+                            <input type="radio" id="sepeda" name="jenisKendaraan" value="Sepeda Listrik" checked>
+                            <label for="sepeda" class="radio-card">
+                                <span class="icon">🚲</span> Sepeda Listrik
+                            </label>
+
+                            <input type="radio" id="skuter" name="jenisKendaraan" value="Skuter Listrik">
+                            <label for="skuter" class="radio-card">
+                                <span class="icon">🛴</span> Skuter Listrik
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Pilihan Paket (Dropdown) -->
+                    <div class="form-group">
+                        <label for="paket">Pilihan Paket Sewa:</label>
+                        <select id="paket" required>
+                            <option value="10000" data-tipe="jam">Paket Sewa Per Jam (Rp 10.000/jam)</option>
+                            <option value="50000" data-tipe="hari">Paket Sewa Harian Mahasiswa (Rp 50.000/hari)</option>
+                            <option value="250000" data-tipe="minggu">Paket Sewa Mingguan (Rp 250.000/minggu)</option>
                         </select>
                     </div>
-                    <button type="button" class="btn-pay" onclick="prosesPembayaran()">Konfirmasi & Proses Sewa</button>
+
+                    <!-- Input Durasi / Jumlah -->
+                    <div class="form-group">
+                        <label for="durasi" id="labelDurasi">Durasi Unit yang Disewa (Jam):</label>
+                        <input type="number" id="durasi" min="1" value="1" required>
+                    </div>
+
+                    <!-- Input Kode Promo -->
+                    <div class="form-group">
+                        <label for="promo">Kode Promo (Opsional):</label>
+                        <input type="text" id="promo" placeholder="Contoh: UNJHEMAT atau GREENKAMPUS">
+                        <div class="promo-info">Gunakan kode <b>UNJHEMAT</b> (diskon 10%) atau <b>GREENKAMPUS</b> (potongan Rp 15.000)</div>
+                    </div>
+
+                    <button type="button" class="btn-calc" onclick="hitungTotal()">Hitung Simulasi Biaya</button>
+                </form>
+
+                <!-- Kotak Hasil Perhitungan -->
+                <div class="result-box" id="resultBox">
+                    <h4>Rincian Estimasi Biaya</h4>
+                    <div class="result-item">
+                        <span>Kendaraan:</span>
+                        <span id="kendaraanOutput" style="font-weight: 600; color: var(--sage-dark);">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Subtotal:</span>
+                        <span id="subtotalOutput">Rp 0</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Diskon Promo:</span>
+                        <span id="diskonOutput">- Rp 0</span>
+                    </div>
+                    <div class="result-item result-total">
+                        <span>Total Pembayaran:</span>
+                        <span id="totalOutput">Rp 0</span>
+                    </div>
+
+                    <!-- Metode Pembayaran -->
+                    <div class="payment-section">
+                        <h4>Pilih Metode Pembayaran</h4>
+                        <div class="form-group">
+                            <select id="paymentMethod">
+                                <option value="bni">Virtual Account BNI / Mandiri</option>
+                                <option value="qris">QRIS (GoPay, OVO, Dana, ShopeePay)</option>
+                                <option value="cash">Bayar Tunai di Station Kampus</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn-pay" onclick="prosesPembayaran()">Konfirmasi & Proses Sewa</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
     </div>
 
-    <!-- Footer dengan Credit Kelompok -->
-    <footer>
+    <!-- BAGIAN 5: FOOTER (Oleh CEO) -->
+    <footer id="footer-section" data-role="CEO">
         <div class="footer-content">
             <h3>UNJ SmartBike</h3>
             <p class="footer-subtitle">Kelompok 1 - Kelas WebDev D</p>
